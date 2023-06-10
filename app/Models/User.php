@@ -25,20 +25,25 @@ class User extends Authenticatable
         ];
     }
 
-//    public function getGenderTitleAttribute(){
-//        return self::getGenders()[$this->gender];
-//    }
+    public function getGenderTitleAttribute(){
+        return self::getGenders()[$this->gender];
+    }
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-//    protected $fillable = [
-//        'name',
-//        'email',
-//        'password',
-//    ];
+    protected $fillable = [
+        'name',
+        'surname',
+        'email',
+        'password',
+        'patronymic',
+        'age',
+        'gender',
+        'address'
+    ];
 
     /**
      * The attributes that should be hidden for serialization.
