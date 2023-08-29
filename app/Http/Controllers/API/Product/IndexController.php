@@ -16,7 +16,7 @@ class IndexController extends Controller
     {
         $data = $request->validated();
         $filter = app()->make(ProductFilter::class, ['queryParams' => array_filter($data)]);
-        $products = Product::filter($filter)->get();
+        $products = Product::filter($filter)->paginate(12, ['*'], 'page', $data['page']);
         return ProductResource::collection($products);
     }
 }
